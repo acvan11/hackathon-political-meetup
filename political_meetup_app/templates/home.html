@@ -1,21 +1,32 @@
 {% extends 'base.html' %}
 
 {% block content %}
-	<h1>Political Topic</h1>
+
+<h1>Political Topic</h1>
+<div class="text-center">
+	<div>
+		<a class="btn btn-primary" href="{% url 'map' slug='gun_control' %}" role="button" name="gun_control">Gun Control</a>
+	</div>
+	<br><br>
+	<div>
+		<a class="btn btn-primary" href="{% url 'map' slug='healthcare' %}" role="button" name="healthcare">Health Care</a>
+	</div>
+	<br><br>
 
 	<div>
-		<div>
-			<button>Gun Control</button>
-			<button>Health Care</button>
-		</div>
-		<div>
-			<button>Immigration Reform</button>
-			<button>Drugs</button>
-		</div>
-		<div>
-			<button>Abortion Right</button>
-			<button>Women Right</button>
-		</div>
-
+		<a class="btn btn-primary" href="{% url 'map' slug='immigration' %}" name="immigration" role="button">Immigration</a>
 	</div>
+	<br><br>
+
+	<div>
+		<a class="btn btn-primary" href="{% url 'map' slug='abortion' %}" name="abortion" role="button">Abortion</a>
+	</div>
+	<br><br>
+
+	<div>
+		<a class="btn btn-primary" href="{% url 'map' slug='latest' %}" name="latest" role="button">Latest</a>
+	</div>
+
+</div>
+
 {% endblock %}
