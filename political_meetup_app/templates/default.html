@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id='map' style='width: 768px; height: 400px;'></div>
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoieWluZWJlYiIsImEiOiJjam13Y3Ixc3MwcjNrM2tydW5lOTh1amxxIn0.YxyWANgIi9iNWOcz6rO_Dg';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v10',
+    center: [-77.03, 38.91],
+    zoom: 9,
+    style: 'mapbox://styles/mapbox/streets-v10'
+  });
+</script>
+{% endblock %}

@@ -19,7 +19,7 @@ def create_profile(request):
         print(profile)
         if profile.is_valid():
             user = profile.save()
-            return render(request, 'base.html')
+            return render(request, 'default.html')
         else:
             print('else')
     else:
@@ -61,6 +61,15 @@ class VenueAdmin(ListView):
                     settings.GOOGLE_MAPS_API_KEY),
                 'location_picker.js',
             )
+
+
+def default_map(request):
+    # TODO: move this token to Django settings from an environment variable
+    # found in the Mapbox account settings and getting started instructions
+    # see https://www.mapbox.com/account/ under the "Access tokens" section
+    mapbox_access_token = 'pk.eyJ1IjoieWluZWJlYiIsImEiOiJjam13Y3Ixc3MwcjNrM2tydW5lOTh1amxxIn0.YxyWANgIi9iNWOcz6rO_Dg'
+    return render(request, 'default.html',
+                  {'mapbox_access_token': mapbox_access_token})
 
 
 def login(request):
