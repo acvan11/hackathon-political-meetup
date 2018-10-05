@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'political_meetup_app',
+    'easy_maps',
 ]
 
 MIDDLEWARE = [
@@ -122,3 +123,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 GOOGLE_MAPS_API_KEY = 'AIzaSyDvRAroyj65Jdpy0nYxqiOffyNIxEmgpxw'
+
+# EASY_MAPS_GOOGLE_MAPS_API_KEY = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ___0123456789'
+EASY_MAPS_GOOGLE_MAPS_API_KEY = 'AIzaSyDvRAroyj65Jdpy0nYxqiOffyNIxEmgpxw'
+
+EASY_MAPS_CENTER = (-41.3, 32)
