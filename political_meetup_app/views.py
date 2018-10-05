@@ -7,3 +7,10 @@ def index(request):
 
 def login(request):
 	return render(request,'login.html')
+
+def createacc(request):
+	return render(request,'createacc.html')
+
+
+def signin(request):
+	return render(request,'signin.html')
