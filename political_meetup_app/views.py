@@ -79,7 +79,23 @@ def login(request):
 
 
 def signup(request):
-    return render(request, './signup.html')
+		if request.method == 'GET':
+			return render(request, 'signup.html')
+		elif request.method == 'POST':
+			username = request.POST['username']
+			password = request.POST['password']
+
+		try:
+			user = User.objects.create_user(username=username, 
+				password=password, 
+				first_name = firstname,
+				last_name = lastname)
+			if user is not None:
+				# auth.login(request, user)
+				return login(request)
+		except:
+			return render(request, 'signup.html', { 'error': 'Arggggg!' })
+		return HttpResponse('POST to /signup')
 
 
 def signin(request):
