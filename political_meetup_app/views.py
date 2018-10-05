@@ -19,10 +19,11 @@ def create_profile(request):
         print(profile)
         if profile.is_valid():
             user = profile.save()
-            return redirect('base.html')
+            return render(request, 'base.html')
         else:
             print('else')
     else:
+        print('create prof - get')
         form = ProfileForm()
         return render(request, 'create_profile.html')
 

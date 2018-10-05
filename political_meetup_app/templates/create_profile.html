@@ -7,7 +7,7 @@
 </div>
 {% endif %}
 <br><br>
-<form action="/profile" method="POST">
+<form action="/create_profile/" method="POST">
   {% csrf_token %}
   <div class="form-row">
     <div class="form-group col-7">
@@ -42,14 +42,14 @@
     <div class="col-7">
       <select id="inputState" name='age' class="form-control">
         <option selected>Age</option>
-        <option>18-30</option>
-        <option>30-40</option>
-        <option>40-60</option>
-        <option>60 +</option>
+        <option value="1">18-30</option>
+        <option value="2">30-40</option>
+        <option value="3">40-60</option>
+        <option value="4">60 +</option>
       </select>
     </div>
     <div class="col">
-      <input type="number" name="radius" class="form-control" min='0' step='1' placeholder="Radius">
+      <input type="number" name="radius" class="form-control" min='0' step='1' placeholder="Radius" required>
     </div>
   </div>
   <!--  -->
