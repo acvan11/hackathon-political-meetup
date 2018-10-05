@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import ProfileForm
-from .models import User, Venue
+from .models import Profile, Venue
 from django.views.generic import ListView
 from django.conf import settings
+from django.contrib.auth.models import User
+from django.contrib import auth
 
 
 # Create your views here.
@@ -80,22 +82,25 @@ def login(request):
 
 def signup(request):
 		if request.method == 'GET':
+			print('GET')
 			return render(request, 'signup.html')
 		elif request.method == 'POST':
 			username = request.POST['username']
 			password = request.POST['password']
-
-		try:
-			user = User.objects.create_user(username=username, 
-				password=password, 
-				first_name = firstname,
-				last_name = lastname)
-			if user is not None:
-				# auth.login(request, user)
-				return login(request)
-		except:
-			return render(request, 'signup.html', { 'error': 'Arggggg!' })
-		return HttpResponse('POST to /signup')
+			print('POST')
+			print(username, password)
+			try:
+				user = User.objects.create_user(
+					username=username, 
+					password=password)
+				print('POST')
+				print(username, password)
+				if user is not None:
+					# auth.login(request, user)
+					return login(request)
+			except Exception as e:
+				return render(request, 'signup.html', { 'error': 'Arggggg!'  + str(e) })
+			return HttpResponse('POST to /signup')
 
 
 def signin(request):

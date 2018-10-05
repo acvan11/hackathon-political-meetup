@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends './base.html' %}
 
 {% block content %}
   {% if error %}
@@ -8,7 +8,7 @@
   {% endif %}
 
   <h1>Sign Up</h1>
-  <form method="POST" action="/signup">
+  <form method="POST" action="/signup/">
   	{% csrf_token %}
   	<div class="form-group">
   		<label>Username:</label>

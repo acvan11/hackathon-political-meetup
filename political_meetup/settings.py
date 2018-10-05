@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'political_meetup.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'meetup',
+        'NAME': 'meetup2',
         'HOST': 'localhost',
     }
 }
