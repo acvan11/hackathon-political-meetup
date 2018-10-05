@@ -11,6 +11,8 @@ def login(request):
 def createacc(request):
 	return render(request,'createacc.html')
 
-
 def signin(request):
 	return render(request,'signin.html')
+
+def profile(request):
+	return render(request,'profile.html')
