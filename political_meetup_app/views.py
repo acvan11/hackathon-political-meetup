@@ -21,7 +21,7 @@ def create_profile(request):
         print(profile)
         if profile.is_valid():
             user = profile.save()
-            return render(request, 'default.html')
+            return render(request, 'home.html')
         else:
             print('else')
     else:
@@ -83,7 +83,7 @@ def signup(request):
             print(username, password)
             if user is not None:
                 # auth.login(request, user)
-                return login(request)
+                return redirect('create_profile')
         except Exception as e:
             return render(request, 'signup.html', {'error': 'Arggggg!' + str(e)})
         return HttpResponse('POST to /signup')
