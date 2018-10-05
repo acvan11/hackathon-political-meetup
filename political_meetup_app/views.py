@@ -4,3 +4,6 @@ from django.http import HttpResponse
 
 def index(request):
 	return HttpResponse("Meetup webapp")
+
+def login(request):
+	return render(request,'login.html')
