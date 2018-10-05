@@ -117,7 +117,9 @@ def signin(request):
 
 
 def profile(request):
-    return render(request, './profile.html')
+    profile = Profile.objects.get(id=1)
+    return render(request, './profile.html', {'profile': profile
+        })
 
 
 def home(request):
