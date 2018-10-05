@@ -64,7 +64,18 @@ class VenueAdmin(ListView):
 
 
 def login(request):
-    return render(request, './political_meetup_app/login.html')
+		if request.method == 'GET':
+			return render(request, 'login.html')
+		elif request.method == 'POST':
+			username = request.POST['username']
+			password = request.POST['password']
+
+			user = auth.authenticate(username = username, password=password)
+		if user is not None:
+			auth.login(request, user)
+			return redirect('index')
+		else:            
+			return render(request, 'login.html', { 'error': 'Invalid credentials' })
 
 
 def signup(request):
