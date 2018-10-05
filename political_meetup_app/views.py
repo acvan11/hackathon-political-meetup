@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import ProfileForm
-from .models import User, Venue
+from .models import Profile, Venue
 from django.views.generic import ListView
 from django.conf import settings
+from django.contrib.auth.models import User
+from django.contrib import auth
 
 
 # Create your views here.
@@ -73,11 +75,41 @@ def default_map(request):
 
 
 def login(request):
-    return render(request, './political_meetup_app/login.html')
+		if request.method == 'GET':
+			return render(request, 'login.html')
+		elif request.method == 'POST':
+			username = request.POST['username']
+			password = request.POST['password']
+
+			user = auth.authenticate(username = username, password=password)
+		if user is not None:
+			auth.login(request, user)
+			return redirect('index')
+		else:            
+			return render(request, 'login.html', { 'error': 'Invalid credentials' })
 
 
 def signup(request):
-    return render(request, './signup.html')
+		if request.method == 'GET':
+			print('GET')
+			return render(request, 'signup.html')
+		elif request.method == 'POST':
+			username = request.POST['username']
+			password = request.POST['password']
+			print('POST')
+			print(username, password)
+			try:
+				user = User.objects.create_user(
+					username=username, 
+					password=password)
+				print('POST')
+				print(username, password)
+				if user is not None:
+					# auth.login(request, user)
+					return login(request)
+			except Exception as e:
+				return render(request, 'signup.html', { 'error': 'Arggggg!'  + str(e) })
+			return HttpResponse('POST to /signup')
 
 
 def signin(request):
