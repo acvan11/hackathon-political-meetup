@@ -13,7 +13,7 @@ def index(request):
     return render(request, 'base.html')
 
 
-def profile(request):
+def create_profile(request):
     if request.method == 'POST':
         profile = ProfileForm(request.POST)
         print(profile)
@@ -24,7 +24,7 @@ def profile(request):
             print('else')
     else:
         form = ProfileForm()
-        return render(request, 'profile.html')
+        return render(request, 'create_profile.html')
 
 
 def profile_edit(request, pk):
@@ -60,3 +60,23 @@ class VenueAdmin(ListView):
                     settings.GOOGLE_MAPS_API_KEY),
                 'location_picker.js',
             )
+
+
+def login(request):
+    return render(request, './political_meetup_app/login.html')
+
+
+def signup(request):
+    return render(request, './signup.html')
+
+
+def signin(request):
+    return render(request, './signin.html')
+
+
+def profile(request):
+    return render(request, './profile.html')
+
+
+def home(request):
+    return render(request, './home.html')
