@@ -1,30 +1,31 @@
-<!DOCTYPE html>
-<html>
+{% extends 'base.html' %}
 
-<head>
-	<title>Homepage</title>
-
-</head>
-
-<body>
-	<h1>Political Topic</h1>
+{% block content %}
+<h1>Political Topic</h1>
+<div class="text-center">
+	<div>
+		<a class="btn btn-primary" href="{% url 'map'%}" role="button">Gun Control</a>
+	</div>
+	<br><br>
+	<div>
+		<a class="btn btn-primary" href="{% url 'map'%}" role="button">Health Care</a>
+	</div>
+	<br><br>
 
 	<div>
-		<div>
-			<button>Gun Control</button>
-			<button>Health Care</button>
-		</div>
-		<div>
-			<button>Immigration Reform</button>
-			<button>Drugs</button>
-		</div>
-		<div>
-			<button>Abortion Right</button>
-			<button>Women Right</button>
-		</div>
+		<a class="btn btn-primary" href="{% url 'map'%}" role="button">Immigration</a>
+	</div>
+	<br><br>
 
+	<div>
+		<a class="btn btn-primary" href="{% url 'map'%}" role="button">Abortion</a>
+	</div>
+	<br><br>
+
+	<div>
+		<a class="btn btn-primary" href="{% url 'map'%}" role="button">Latest</a>
 	</div>
 
-</body>
+</div>
 
-</html>
+{% endblock %}
