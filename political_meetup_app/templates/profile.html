@@ -1,0 +1,241 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if error %}
+<div class="alert alert-warning">
+  <strong>Error!</strong> {{error}}
+</div>
+{% endif %}
+<br><br>
+<form action="/profile" method="POST">
+  {% csrf_token %}
+  <div class="form-row">
+    <div class="form-group col-7">
+      <input type="text" name="user_name" class="form-control" placeholder="Username">
+    </div>
+    <div class="form-group col">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="sex" id="M" value="M" checked>
+        <label class="form-check-label">Male</label>
+      </div>
+
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="sex" id="F" value="F">
+        <label class="form-check-label">Female</label>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-7">
+      <input type="text" class="form-control" placeholder="City">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="State">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Zip">
+    </div>
+  </div>
+  <br>
+  <!--  -->
+  <div class="form-row">
+    <div class="col-7">
+      <select id="inputState" name='age' class="form-control">
+        <option selected>Age</option>
+        <option>18-30</option>
+        <option>30-40</option>
+        <option>40-60</option>
+        <option>60 +</option>
+      </select>
+    </div>
+    <div class="col">
+      <input type="number" name="radius" class="form-control" min='0' step='1' placeholder="Radius">
+    </div>
+  </div>
+  <!--  -->
+
+  <br><br>
+  <div class="form-group col">
+    <div class="radio-label-vertical-wrapper">
+      <div class="form-group">
+        <label>Gun Control</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="gun_control" value="0">0</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="gun_control" value="1">1</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="gun_control" value="2">2</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="gun_control" value="3">3</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="gun_control" value="4">4</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="gun_control" value="5">5</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="gun_control" value="6">6</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="gun_control" value="7">7</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="gun_control" value="8">8</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="gun_control" value="9">9</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="gun_control" value="10">10</label>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="form-group col">
+    <div class="radio-label-vertical-wrapper">
+      <div class="form-group">
+        <label>Abortion</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="abortion" value="0">0</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="abortion" value="1">1</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="abortion" value="2">2</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="abortion" value="3">3</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="abortion" value="4">4</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="abortion" value="5">5</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="abortion" value="6">6</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="abortion" value="7">7</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="abortion" value="8">8</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="abortion" value="9">9</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="abortion" value="10">10</label>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="form-group col">
+    <div class="radio-label-vertical-wrapper">
+      <div class="form-group">
+        <label>Immigration</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="immigration" value="0">0</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="immigration" value="1">1</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="immigration" value="2">2</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="immigration" value="3">3</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="immigration" value="4">4</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="immigration" value="5">5</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="immigration" value="6">6</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="immigration" value="7">7</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="immigration" value="8">8</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="immigration" value="9">9</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="immigration" value="10">10</label>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="form-group col">
+    <div class="radio-label-vertical-wrapper">
+      <div class="form-group">
+        <label>Drugs</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="drugs" value="0">0</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="drugs" value="1">1</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="drugs" value="2">2</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="drugs" value="3">3</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="drugs" value="4">4</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="drugs" value="5">5</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="drugs" value="6">6</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="drugs" value="7">7</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="drugs" value="8">8</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="drugs" value="9">9</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="drugs" value="10">10</label>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="form-group col">
+    <div class="radio-label-vertical-wrapper">
+      <div class="form-group">
+        <label>Health Care</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="healthcare" value="0">0</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="healthcare" value="1">1</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="healthcare" value="2">2</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="healthcare" value="3">3</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="healthcare" value="4">4</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="healthcare" value="5">5</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="healthcare" value="6">6</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="healthcare" value="7">7</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="healthcare" value="8">8</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="healthcare" value="9">9</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="healthcare" value="10">10</label>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="form-group col">
+    <div class="radio-label-vertical-wrapper">
+      <div class="form-group">
+        <label>Latest</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="latest" value="0">0</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="latest" value="1">1</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="latest" value="2">2</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="latest" value="3">3</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="latest" value="4">4</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="latest" value="5">5</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="latest" value="6">6</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="latest" value="7">7</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="latest" value="8">8</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="latest" value="9">9</label>
+        <label class="radio-label-vertical">
+          <input type="radio" name="latest" value="10">10</label>
+      </div>
+    </div>
+  </div>
+  <div class="text-center">
+    <input type="submit" value="Submit" class="btn btn-primary">
+  </div>
+</form>
+{% endblock %}
